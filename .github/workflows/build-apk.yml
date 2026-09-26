@@ -19,6 +19,8 @@ jobs:
           java-version: '21'
       - run: npm install --no-audit --no-fund
       - run: npx cap add android
+      - name: Inject Android integrations
+        run: node scripts/inject-android.mjs
       - run: npx cap sync android
       - name: Build APK
         working-directory: android
